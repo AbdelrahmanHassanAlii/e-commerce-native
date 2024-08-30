@@ -1,6 +1,6 @@
 .user-cart {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 30px));
   gap: 20px;
 }
 
@@ -105,3 +105,38 @@
   background-color: var(--lime-blue-color-hover);
 }
 
+.formContainer{
+  display: none; /* Start hidden */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Above other elements */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+#paypalForm{
+  background-color: white;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  height: 300px;
+  display: grid;
+  background-color: var(--lime-blue-color);
+}
+
+#paypalForm input{
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px solid var(--lime-blue-color);
+  outline: none;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  height: 40px;
+}

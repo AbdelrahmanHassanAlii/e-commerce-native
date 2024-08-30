@@ -6,11 +6,11 @@
   --main-card-background-color: #ffffff;
   --yellow-color: #f5a623;
   --yellow-color-hover: #d48f1f;
-  --red-color: #e4003a;
-  --red-color-hover: #b3002b;
+  --red-color: red;
+  --red-color-hover: #FF4C4C;
   --green-color: #97be5a;
-  --lime-blue-color: #5f9ea0;
-  --lime-blue-color-hover: #4d7876a5;
+  --lime-blue-color: #6482AD;
+  --lime-blue-color-hover: #7FA1C3;
 
   --main-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   --secons-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

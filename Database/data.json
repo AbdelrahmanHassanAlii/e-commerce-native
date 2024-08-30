@@ -1421,24 +1421,34 @@
     }
   ],
   "orders": [
-<<<<<<< HEAD
-  
-    
-=======
     {
-      "id": "cb23",
-      "userId": "bz2ya4sdx",
+      "id": "b177",
+      "userId": "fwt4qbp9e",
       "products": [
         {
-          "productId": "28"
-        },
-        {
-          "productId": "30"
+          "productId": "2"
         }
       ],
       "status": "accepted"
+    },
+    {
+      "id": "e563",
+      "userId": "fwt4qbp9e",
+      "products": [
+        {
+          "productId": "11"
+        }
+      ]
+    },
+    {
+      "id": "c7be",
+      "userId": "fwt4qbp9e",
+      "products": [
+        {
+          "productId": "7"
+        }
+      ]
     }
->>>>>>> 7df03e38ac763f06b01566655a81591de316190a
   ],
   "admins": [
     {

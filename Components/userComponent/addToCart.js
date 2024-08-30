@@ -121,6 +121,10 @@ placeOrder.addEventListener("click", () => {
         src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
         alt="PayPal - The safer, easier way to pay online"
       />
+      <input type = "text"
+      name = "address"
+      placeholder="Enter your address"
+      required
       <img
         alt=""
         width="1"
@@ -129,6 +133,7 @@ placeOrder.addEventListener("click", () => {
       />
     </form>
   `;
+  document.querySelector(".formContainer").style.display = "block";
 });
 
 // Handle form submission
