@@ -1421,33 +1421,8 @@
     }
   ],
   "orders": [
-    {
-      "id": "b822",
-      "userId": "fwt4qbp9e",
-      "products": [
-        {
-          "productId": "12"
-        }
-      ]
-    },
-    {
-      "id": "0e85",
-      "userId": "fwt4qbp9e",
-      "products": [
-        {
-          "productId": "11"
-        }
-      ]
-    },
-    {
-      "id": "f827",
-      "userId": "fwt4qbp9e",
-      "products": [
-        {
-          "productId": "502"
-        }
-      ]
-    }
+  
+    
   ],
   "admins": [
     {
