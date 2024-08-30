@@ -12,6 +12,7 @@ export const getAllOrders = async () => {
     return [];
   }
 };
+
 const updateOrderStatus = async (orderId, status) => {
   try {
     const response = await fetch(`http://localhost:4000/orders/${orderId}`, {
@@ -54,12 +55,19 @@ export const renderOrdersList = async () => {
     ordersByUser[order.userId].push(order);
   });
 
+  // Retrieve user information from localStorage
+  const usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || {};
+
   for (const userId in ordersByUser) {
     const userOrders = ordersByUser[userId];
+    const userInfo = usersInfo.find((info) => info.userId === userId) || {};
 
     let orderHTML = `
       <div class="product-card">
         <h3>Orders for User ID: ${userId}</h3>
+        <p>Phone: ${userInfo.phone || "N/A"}</p>
+        <p>Card Number: ${userInfo.cardNumber || "N/A"}</p>
+        <p>CVV: ${userInfo.cvv || "N/A"}</p>
         <div class="products">
     `;
 
@@ -76,14 +84,13 @@ export const renderOrdersList = async () => {
               <h3>${product.name}</h3>
               <p class="description">${product.description}</p>
               <p class="price">Price: $${product.price}</p>
-              
             </div>
           `
         )
         .join("");
       orderHTML += `<button class="accept-order" data-order-id="${order.id}">Accept</button>
-              <button class="reject-order" data-order-id="${order.id}">Reject</button>
-              <hr>`;
+                    <button class="reject-order" data-order-id="${order.id}">Reject</button>
+                    <hr>`;
     }
 
     orderHTML += `

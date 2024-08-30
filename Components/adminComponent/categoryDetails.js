@@ -109,7 +109,7 @@ const showEditProductForm = async (productId) => {
     
     <div class="form-group">
       <label for="edit-product-price">Product Price:</label>
-      <input type="number" id="edit-product-price" value="${
+      <input type="text" id="edit-product-price" value="${
         product.price
       }" required>
     </div>

@@ -68,7 +68,6 @@ const removeFromCartList = (productId) => {
 
     localStorage.setItem("cart", JSON.stringify(cartList));
     renderCartList();
-    window.location.reload();
   }
 };
 
@@ -85,29 +84,102 @@ function showNotification(message) {
 
 const placeOrder = document.querySelector(".placeOrderBtn");
 
-if(!cartIDs || cartIDs.length === 0) {
+if (!cartIDs || cartIDs.length === 0) {
   placeOrder.style.display = "none";
 }
 
 placeOrder.addEventListener("click", () => {
-  // Create the order object with userId and productIds
-  const order = {
-    userId: userID,
-    products: cartIDs.map((id) => ({ productId: id })), // Format products as array of objects with productId
-  };
-
-  // Send the order to the server, update the cart, and display success message
-  sendOrderToServer(order);
-
-  cartList = JSON.parse(localStorage.getItem("cart")) || {};
-  if (cartList[userID]) {
-    delete cartList[userID];
-    localStorage.setItem("cart", JSON.stringify(cartList));
-  }
-
-  // Display success notification
-  showNotification("Order placed successfully!");
+  document.querySelector(".formContainer").innerHTML = `
+ <form id="paypalForm" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+      <!-- Saved buttons use the "secure click" command -->
+      <input
+        class="phone"
+        type="text"
+        name="phone"
+        placeholder="Enter Phone Number"
+        required
+      />
+      <input
+        class="cardNumber"
+        type="text"
+        name="cardNumber"
+        placeholder="Enter Card Number"
+        required
+      />
+      <input
+        class="cvv"
+        type="text"
+        name="cvv"
+        placeholder="Enter Cvv"
+        maxlength="3"
+        required
+      />
+      <input
+        class="submit"
+        type="image"
+        name="submit"
+        src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+        alt="PayPal - The safer, easier way to pay online"
+      />
+      <input type = "text"
+      name = "address"
+      placeholder="Enter your address"
+      required
+      <img
+        alt=""
+        width="1"
+        height="1"
+        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+      />
+    </form>
+  `;
+  document.querySelector(".formContainer").style.display = "block";
 });
+
+// Handle form submission
+document
+.querySelector(".formContainer")
+.addEventListener("submit", function (e) {
+  e.preventDefault();
+  
+  // window.location.href("/HTML/userPages/pastOrders.html")
+    // Collect order data
+    const order = {
+      userId: userID,
+      products: cartIDs.map((id) => ({ productId: id })),
+    };
+
+    // Send order to the server
+    sendOrderToServer(order);
+
+    // Clear cart
+    cartList = JSON.parse(localStorage.getItem("cart")) || {};
+    if (cartList[userID]) {
+      delete cartList[userID];
+      localStorage.setItem("cart", JSON.stringify(cartList));
+    }
+    // Display success notification
+    showNotification("Order placed successfully!");
+
+    // Update user data in usersInfo array
+    const usersInfo = JSON.parse(localStorage.getItem("usersInfo")) || [];
+    const updatedUser = {
+      userId: userID,
+      phone: document.querySelector(".phone").value,
+      cardNumber: document.querySelector(".cardNumber").value,
+      cvv: document.querySelector(".cvv").value,
+    };
+
+    // Update or add the user info
+    const userIndex = usersInfo.findIndex((user) => user.userId === userID);
+    if (userIndex > -1) {
+      usersInfo[userIndex] = updatedUser;
+    } else {
+      usersInfo.push(updatedUser);
+    }
+
+    localStorage.setItem("usersInfo", JSON.stringify(usersInfo));
+  });
 
 const sendOrderToServer = (order) => {
   fetch("http://localhost:4000/orders", {

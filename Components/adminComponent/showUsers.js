@@ -218,14 +218,13 @@ export let content = `
 </div>
 `;
 
-  let usersContainer = document.querySelector(".admin-user-container");
-  if (usersContainer) {
-    usersContainer.innerHTML = content; // Load table structure
-    await displayUsers(); // Populate with all data initially
-    document
-      .getElementById("searchInput")
-      .addEventListener("input", searchHandler); // Add search event
-  } else {
-    console.error("Element with class 'admin-user-container' not found.");
-  }
-// Load users and table structure on page load
+let usersContainer = document.querySelector(".admin-user-container");
+if (usersContainer) {
+  usersContainer.innerHTML = content; // Load table structure
+  await displayUsers(); // Populate with all data initially
+  document
+    .getElementById("searchInput")
+    .addEventListener("input", searchHandler); // Add search event
+} else {
+  console.error("Element with class 'admin-user-container' not found.");
+}

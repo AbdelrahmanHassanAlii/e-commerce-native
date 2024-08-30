@@ -56,8 +56,8 @@ if (showUsersBtn) {
 
 const  handleorders = async() => { 
   const data = await getAllOrders();
+  console.log(data[0].products)
   if (data.map((item)=>item.productId)) { 
-    
     const dot = document.querySelector(".para")
     dot.style.display = "block";
   }
