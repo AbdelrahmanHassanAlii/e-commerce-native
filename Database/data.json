@@ -1421,8 +1421,24 @@
     }
   ],
   "orders": [
+<<<<<<< HEAD
   
     
+=======
+    {
+      "id": "cb23",
+      "userId": "bz2ya4sdx",
+      "products": [
+        {
+          "productId": "28"
+        },
+        {
+          "productId": "30"
+        }
+      ],
+      "status": "accepted"
+    }
+>>>>>>> 7df03e38ac763f06b01566655a81591de316190a
   ],
   "admins": [
     {
