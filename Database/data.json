@@ -1,5 +1,13 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "fwt4qbp9e",
+      "username": "hamza",
+      "email": "hamza@yahoo.com",
+      "password": "hamza",
+      "role": 1
+    }
+  ],
   "categories": [
     {
       "name": "Clothes",
@@ -1412,7 +1420,35 @@
       "rating": "4.7"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "b822",
+      "userId": "fwt4qbp9e",
+      "products": [
+        {
+          "productId": "12"
+        }
+      ]
+    },
+    {
+      "id": "0e85",
+      "userId": "fwt4qbp9e",
+      "products": [
+        {
+          "productId": "11"
+        }
+      ]
+    },
+    {
+      "id": "f827",
+      "userId": "fwt4qbp9e",
+      "products": [
+        {
+          "productId": "502"
+        }
+      ]
+    }
+  ],
   "admins": [
     {
       "id": "1",

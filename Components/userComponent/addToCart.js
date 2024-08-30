@@ -133,10 +133,11 @@ placeOrder.addEventListener("click", () => {
 
 // Handle form submission
 document
-  .querySelector(".formContainer")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-
+.querySelector(".formContainer")
+.addEventListener("submit", function (e) {
+  e.preventDefault();
+  
+  // window.location.href("/HTML/userPages/pastOrders.html")
     // Collect order data
     const order = {
       userId: userID,
@@ -152,7 +153,6 @@ document
       delete cartList[userID];
       localStorage.setItem("cart", JSON.stringify(cartList));
     }
-
     // Display success notification
     showNotification("Order placed successfully!");
 
