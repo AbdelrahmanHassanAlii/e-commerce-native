@@ -1446,7 +1446,21 @@
       "rating": "4.7"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "cb23",
+      "userId": "bz2ya4sdx",
+      "products": [
+        {
+          "productId": "28"
+        },
+        {
+          "productId": "30"
+        }
+      ],
+      "status": "accepted"
+    }
+  ],
   "admins": [
     {
       "id": "1",
