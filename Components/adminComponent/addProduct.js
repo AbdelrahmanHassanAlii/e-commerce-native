@@ -5,6 +5,7 @@ const params = new URLSearchParams(window.location.search);
 const categoryId = params.get("id");
 
 const addProducts = async (categoryId) => {
+  
   try {
     let products = await getProductsByCategory(categoryId);
 
@@ -50,10 +51,6 @@ const addProducts = async (categoryId) => {
       <input type="text" id="product-brandname" required>
     </div>
     
-    <div class="form-group">
-      <label for="product-categoryId">Product Category Id:</label><br/>
-      <input type="number" id="product-categoryId" value="${categoryId}" readonly>
-    </div>
     
     <div class="form-group">
       <label for="product-stock">Product Stock:</label><br/>

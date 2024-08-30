@@ -88,3 +88,7 @@ body.show-popup .admin-product-form {
   font-size: 40px;
   border: none;
 }
+
+#product-categoryId{
+  color: black !important;
+}
